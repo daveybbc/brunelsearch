@@ -3,64 +3,97 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>AI Talent Co.</title>
+  <title>Brunel Search</title>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
   <style>
     body { margin:0; font-family: Inter, sans-serif; background:#0a0a0a; color:white; }
     .container { max-width:1100px; margin:auto; padding:20px; }
     .hero { text-align:center; padding:100px 20px; }
-    h1 { font-size:56px; margin-bottom:20px; }
-    p { color:#aaa; font-size:18px; }
+    h1 { font-size:52px; margin-bottom:20px; }
+    h2 { font-size:32px; margin-bottom:20px; }
+    h3 { font-size:20px; margin-bottom:10px; }
+    p { color:#aaa; font-size:18px; line-height:1.6; }
     .btn { padding:14px 24px; margin:10px; border-radius:8px; border:none; cursor:pointer; font-size:16px; }
     .primary { background:white; color:black; }
     .outline { background:transparent; border:1px solid #555; color:white; }
     .grid { display:grid; gap:20px; }
     .features { grid-template-columns: repeat(auto-fit, minmax(250px,1fr)); margin-top:60px; }
-    .card { background:#111; padding:20px; border-radius:12px; }
+    .card { background:#111; padding:24px; border-radius:12px; }
     .section { padding:80px 20px; text-align:center; }
+    .left { text-align:left; }
+    .two-col { display:grid; grid-template-columns:1fr; gap:40px; }
+    @media(min-width:768px){ .two-col { grid-template-columns:1fr 1fr; } }
     footer { text-align:center; padding:40px; color:#666; border-top:1px solid #222; }
+    a { color:white; text-decoration:underline; }
   </style>
 </head>
 <body>
 
+  <!-- HERO -->
   <div class="hero">
     <div class="container">
-      <h1>Hire the Best AI & Software Talent</h1>
-      <p>We connect high-growth startups with elite engineers, ML researchers, and product leaders.</p>
-      <button class="btn primary">Hire Talent</button>
-      <button class="btn outline">Find a Job</button>
+      <h1>Hiring ML & AI Engineers for Early-Stage Startups</h1>
+      <p>Specialised in audio, speech, and generative AI. Trusted by YC-backed teams and high-growth startups.</p>
+      <div>
+        <button class="btn primary">Book a Call (Calendly)</button>
+        <a href="mailto:dave@brunelsearch.com"><button class="btn outline">Email Requirements</button></a>
+      </div>
     </div>
   </div>
 
+  <!-- WHO WE WORK WITH -->
+  <div class="section">
+    <div class="container">
+      <h2>Who We Work With</h2>
+      <p>We partner with early-stage startups (YC → Series D) building in AI and ML, particularly teams without a mature internal recruiting function.</p>
+    </div>
+  </div>
+
+  <!-- ROLES -->
   <div class="container grid features">
     <div class="card">
-      <h3>Deep AI Expertise</h3>
-      <p>Specialists in LLMs, agentic systems, and cutting-edge AI roles.</p>
+      <h3>ML Engineers (Applied / Production)</h3>
+      <p>Engineers who can take models from research to production and deliver real-world impact.</p>
     </div>
     <div class="card">
-      <h3>Curated Candidates</h3>
-      <p>Only high-quality, pre-vetted engineers and leaders.</p>
+      <h3>Research Engineers</h3>
+      <p>Bridging cutting-edge research with scalable systems and product integration.</p>
     </div>
     <div class="card">
-      <h3>Fast Hiring</h3>
-      <p>Move quickly and secure top candidates before competitors.</p>
+      <h3>Audio / Speech Engineers</h3>
+      <p>Specialists in speech recognition, audio ML, music tech, and generative audio systems.</p>
     </div>
   </div>
 
+  <!-- WHY US -->
   <div class="section">
-    <h2>How It Works</h2>
-    <p>1. Tell us your hiring needs</p>
-    <p>2. We source & vet candidates</p>
-    <p>3. You hire the best fit</p>
+    <div class="container two-col left">
+      <div>
+        <h2>Why Brunel Search</h2>
+        <p><strong>Deep Technical Understanding</strong><br/>We understand the difference between strong and average candidates in ML, audio, and generative AI.</p>
+        <p><strong>Curated Network</strong><br/>Access to a targeted network of engineers, not generic inbound applicants.</p>
+        <p><strong>High-Quality Vetting</strong><br/>We send a small number of highly relevant candidates — not CV spam.</p>
+      </div>
+      <div>
+        <h2>Track Record</h2>
+        <p><strong>30+ Engineers Placed</strong> in audio and speech domains</p>
+        <p><strong>Senior Hires</strong> across robotics, AI, and HPC/accelerator companies</p>
+        <p><strong>Trusted by YC-backed startups</strong> and high-growth teams</p>
+      </div>
+    </div>
   </div>
 
+  <!-- CTA -->
   <div class="section">
-    <h2>Ready to Build Your Team?</h2>
-    <button class="btn primary">Get Started</button>
+    <h2>Build Your Team with the Right Engineers</h2>
+    <p>Tell us what you’re hiring for and we’ll connect you with candidates who can deliver.</p>
+    <button class="btn primary">Book a Call</button>
+    <p style="margin-top:20px;">Or email: <a href="mailto:dave@brunelsearch.com">dave@brunelsearch.com</a></p>
   </div>
 
+  <!-- FOOTER -->
   <footer>
-    © 2026 AI Talent Co.
+    © 2026 Brunel Search
   </footer>
 
 </body>
