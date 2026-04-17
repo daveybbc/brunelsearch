@@ -39,7 +39,6 @@
       -webkit-font-smoothing: antialiased;
     }
 
-    /* CORE LAYOUT */
     .container {
       max-width: var(--max);
       margin: 0 auto;
@@ -208,42 +207,6 @@
       display: block;
     }
 
-    /* LOGOS */
-    .logo-grid {
-      display: grid;
-      grid-template-columns: repeat(2, 1fr);
-      gap: 12px;
-      margin-top: 24px;
-      max-width: 900px;
-    }
-
-    @media (min-width: 768px) {
-      .logo-grid {
-        grid-template-columns: repeat(4, 1fr);
-      }
-    }
-
-    .logo-card {
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      padding: 18px 12px;
-      border: 1px solid #e6e6e6;
-      border-radius: 12px;
-      text-decoration: none;
-      color: #6b7280;
-      font-size: 14px;
-      font-weight: 500;
-      background: rgba(255,255,255,0.35);
-      transition: all 0.2s ease;
-    }
-
-    .logo-card:hover {
-      color: #111;
-      border-color: #cfcfcf;
-      transform: translateY(-2px);
-    }
-
     footer {
       padding: var(--space-7) 0;
       color: var(--muted);
@@ -290,24 +253,6 @@
 
     <div class="actions">
       <a class="btn" href="mailto:info@brunelsearch.com">Get in touch</a>
-    </div>
-  </section>
-
-  <!-- ECOSYSTEM LOGOS -->
-  <section class="container content">
-    <h2>Built in the speech & audio AI ecosystem</h2>
-
-    <p class="subtle">
-      Teams and platforms operating in the same space we recruit for.
-    </p>
-
-    <div class="logo-grid">
-
-      <a class="logo-card" href="https://www.antarestech.com/" target="_blank">Antares</a>
-      <a class="logo-card" href="https://www.syntiant.com/" target="_blank">Syntiant</a>
-      <a class="logo-card" href="https://www.ultravox.com/" target="_blank">Ultravox</a>
-      <a class="logo-card" href="https://www.withdavid.ai/" target="_blank">WithDavid</a>
-
     </div>
   </section>
 
