@@ -151,65 +151,40 @@
       }
     }
 
-    <!-- JOBS -->
-<section class="container content" id="jobs">
-  <h2>Jobs</h2>
+    /* JOBS */
+    .accordion {
+      margin-top: 24px;
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+    }
 
-  <div class="accordion">
+    .job {
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      overflow: hidden;
+      background: rgba(255,255,255,0.4);
+    }
 
-    <!-- JOB 1 -->
-    <div class="job">
-      <button class="job-title">Founding ML Engineer — Generative Audio</button>
+    .job-title {
+      width: 100%;
+      text-align: left;
+      padding: 14px;
+      font-size: 14px;
+      font-weight: 500;
+      border: none;
+      background: transparent;
+      cursor: pointer;
+    }
 
-      <div class="job-body">
-        <p><strong>Location:</strong> San Francisco / Remote</p>
-        <p><strong>Salary:</strong> TBD (Founding-level package + equity)</p>
-        <p><strong>Visa sponsorship:</strong> Available</p>
+    .job-body {
+      display: none;
+      padding: 0 14px 14px;
+      color: var(--muted);
+      font-size: 14px;
+    }
 
-        <p><strong>Job summary:</strong></p>
-        <p>
-          Building real-time generative audio systems for next-generation media and creative AI products.
-          Work spans model development, inference optimisation, and production deployment of audio generation systems.
-        </p>
-      </div>
-    </div>
-
-    <!-- JOB 2 -->
-    <div class="job">
-      <button class="job-title">AI Research Engineer — Speech AI</button>
-
-      <div class="job-body">
-        <p><strong>Location:</strong> US / Remote</p>
-        <p><strong>Salary:</strong> $160k – $220k + equity</p>
-        <p><strong>Visa sponsorship:</strong> Available</p>
-
-        <p><strong>Job summary:</strong></p>
-        <p>
-          Core model development for speech and audio AI systems, including training, experimentation,
-          and architecture design for high-performance speech understanding and generation models.
-        </p>
-      </div>
-    </div>
-
-    <!-- JOB 3 -->
-    <div class="job">
-      <button class="job-title">ML Engineer — Production Speech Systems</button>
-
-      <div class="job-body">
-        <p><strong>Location:</strong> US / Remote</p>
-        <p><strong>Salary:</strong> $150k – $200k + equity</p>
-        <p><strong>Visa sponsorship:</strong> Case-by-case</p>
-
-        <p><strong>Job summary:</strong></p>
-        <p>
-          Building and scaling low-latency production speech AI systems. Focus on performance,
-          reliability, and deployment of real-time audio pipelines in production environments.
-        </p>
-      </div>
-    </div>
-
-  </div>
-</section>
+    .job.open .job-body { display: block; }
 
     /* PRICING */
     .pricing-grid {
