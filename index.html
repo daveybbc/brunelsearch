@@ -26,9 +26,7 @@
       --space-8: 110px;
     }
 
-    * {
-      box-sizing: border-box;
-    }
+    * { box-sizing: border-box; }
 
     body {
       margin: 0;
@@ -74,9 +72,7 @@
       padding: 12px 0;
     }
 
-    .nav-logo img {
-      height: 54px;
-    }
+    .nav-logo img { height: 54px; }
 
     .nav-links {
       display: flex;
@@ -90,12 +86,9 @@
       color: var(--muted);
     }
 
-    .nav-links a:hover {
-      color: var(--text);
-    }
+    .nav-links a:hover { color: var(--text); }
 
     .nav-cta a {
-      display: inline-block;
       padding: 8px 12px;
       border-radius: 8px;
       background: var(--text);
@@ -112,7 +105,7 @@
     }
 
     h1 {
-      font-size: clamp(22px, 5vw, 48px);
+      font-size: clamp(32px, 5vw, 56px);
       line-height: 1.05;
       letter-spacing: -0.04em;
       margin: 0 0 var(--space-3);
@@ -135,7 +128,6 @@
       color: #8a8f98;
     }
 
-    /* BUTTON */
     .btn {
       display: inline-block;
       padding: 12px 16px;
@@ -146,9 +138,7 @@
       font-size: 14px;
     }
 
-    .actions {
-      margin-top: var(--space-4);
-    }
+    .actions { margin-top: var(--space-4); }
 
     /* GRID */
     .grid {
@@ -175,8 +165,8 @@
     .job {
       border: 1px solid var(--border);
       border-radius: 12px;
-      overflow: hidden;
       background: rgba(255,255,255,0.4);
+      overflow: hidden;
     }
 
     .job-title {
@@ -188,7 +178,6 @@
       background: transparent;
       border: none;
       cursor: pointer;
-      color: var(--text);
     }
 
     .job-title:hover {
@@ -197,10 +186,9 @@
 
     .job-body {
       display: none;
-      padding: 0 14px 14px 14px;
+      padding: 0 14px 14px;
       color: var(--muted);
       font-size: 14px;
-      line-height: 1.6;
     }
 
     .job.open .job-body {
@@ -212,7 +200,6 @@
       color: var(--muted);
       font-size: 14px;
     }
-
   </style>
 </head>
 
@@ -227,9 +214,9 @@
       </div>
 
       <div class="nav-links">
-        <a href="#what">What we do</a>
-        <a href="#placed">Placements</a>
-        <a href="#roles">Roles</a>
+        <a href="#about">About</a>
+        <a href="#jobs">Jobs</a>
+        <a href="#pricing">Pricing</a>
       </div>
 
       <div class="nav-cta">
@@ -256,91 +243,79 @@
     </div>
   </section>
 
-  <!-- PLACEMENTS -->
-  <section class="container content" id="placed">
-    <h2>What we’ve placed</h2>
+  <!-- ABOUT -->
+  <section class="container content" id="about">
+    <h2>About</h2>
 
     <p>
-      We’ve supported hiring across product-focused engineering teams building AI-native speech and audio systems.
+      Brunel Search is a specialist search partner focused on speech, audio, and multimodal AI companies.
     </p>
 
     <p>
-      This includes ML, research, full-stack, SDET, and systems engineering roles in companies where engineering directly impacts product capability.
+      We support VC-backed and high-growth startups building products where model performance and systems design directly determine product quality.
+    </p>
+
+    <p>
+      We focus on senior and high-impact engineering hires across ML, research, and systems roles.
     </p>
 
     <p class="subtle">
-      CTO placement at a VC-backed music AI company • Founding AI Research Engineers into a Series A speech AI company • ML Engineers into generative audio startups • Embedded engineers for hardware/software AI systems • SDET and full-stack engineers supporting AI product infrastructure
+      CTO placement at a VC-backed music AI company • Founding AI Research Engineers into a Series A speech AI company • ML Engineers into generative audio startups • Embedded engineers for hardware/software AI systems
     </p>
   </section>
 
-  <!-- WHAT WE DO -->
-  <section class="container content">
-    <h2>What we work on</h2>
-
-    <div class="grid">
-      <div>
-        <p><strong>Speech & Audio AI</strong></p>
-        <p>Speech recognition, generative audio, voice AI systems, and real-time products.</p>
-
-        <p><strong>Machine Learning Engineering</strong></p>
-        <p>Applied ML engineers building production models and LLM systems.</p>
-      </div>
-
-      <div>
-        <p><strong>AI Research Engineering</strong></p>
-        <p>Model development, experimentation, and deployment bridging research and production.</p>
-
-        <p><strong>Systems & Embedded AI</strong></p>
-        <p>Software + hardware AI systems and evaluation infrastructure.</p>
-      </div>
-    </div>
-  </section>
-
-  <!-- LIVE ROLES -->
-  <section class="container content" id="roles">
-    <h2>Live roles</h2>
+  <!-- JOBS -->
+  <section class="container content" id="jobs">
+    <h2>Jobs</h2>
 
     <p class="subtle">Click a role to expand details</p>
 
     <div class="accordion">
 
       <div class="job">
-        <button class="job-title">Founding ML Engineer — Generative Audio (VC-backed)</button>
+        <button class="job-title">Founding ML Engineer — Generative Audio</button>
         <div class="job-body">
-          <p>Building real-time generative audio systems for next-generation media.</p>
-          <p>Focus on model development, inference optimisation, and production deployment.</p>
+          <p>Building real-time generative audio systems.</p>
         </div>
       </div>
 
       <div class="job">
-        <button class="job-title">AI Research Engineer — Speech AI (Series A)</button>
+        <button class="job-title">AI Research Engineer — Speech AI</button>
         <div class="job-body">
-          <p>Core speech model development and experimentation.</p>
-          <p>Work spans training pipelines, evaluation, and production iteration.</p>
+          <p>Core model development and experimentation.</p>
         </div>
       </div>
 
       <div class="job">
         <button class="job-title">ML Engineer — Production Speech Systems</button>
         <div class="job-body">
-          <p>Scaling inference systems for real-time speech AI products.</p>
-          <p>Focus on latency, reliability, and deployment at scale.</p>
+          <p>Scaling real-time speech AI systems.</p>
         </div>
       </div>
 
     </div>
   </section>
 
-  <!-- CTA -->
-  <section class="container content">
-    <h2>Build your team</h2>
+  <!-- PRICING -->
+  <section class="container content" id="pricing">
+    <h2>Pricing</h2>
 
-    <p>
-      If you're building speech, audio, or AI systems where engineering quality matters, we can help you hire the right people.
-    </p>
+    <div class="grid">
 
-    <div class="actions">
-      <a class="btn" href="mailto:info@brunelsearch.com">Get in touch</a>
+      <div>
+        <h3>Contingency</h3>
+        <p>
+          <!-- add copy later -->
+        </p>
+      </div>
+
+      <div>
+        <h3>Retained Projects</h3>
+        <p>
+          <!-- add copy later -->
+        </p>
+      </div>
+
     </div>
   </section>
 
