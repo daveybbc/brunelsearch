@@ -12,7 +12,7 @@
       --bg: #F7F6F3;
       --text: #111111;
       --muted: #6b7280;
-      --border: #e5e7eb;
+      --border: #e6e6e6;
       --max: 1040px;
     }
 
@@ -26,6 +26,8 @@
       background: var(--bg);
       color: var(--text);
       line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+      text-rendering: optimizeLegibility;
     }
 
     /* Layout */
@@ -36,52 +38,70 @@
     }
 
     section {
-      padding: 72px 0;
+      padding: 84px 0;
+      opacity: 0;
+      transform: translateY(12px);
+      animation: fadeIn 0.8s ease forwards;
     }
 
-    /* Divider lines between sections */
+    section:nth-child(1) { animation-delay: 0.05s; }
+    section:nth-child(2) { animation-delay: 0.10s; }
+    section:nth-child(3) { animation-delay: 0.15s; }
+    section:nth-child(4) { animation-delay: 0.20s; }
+    section:nth-child(5) { animation-delay: 0.25s; }
+    section:nth-child(6) { animation-delay: 0.30s; }
+
     section + section {
       border-top: 1px solid var(--border);
+    }
+
+    @keyframes fadeIn {
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
     }
 
     /* Header */
     header {
       padding: 28px 0;
-      display: flex;
-      justify-content: flex-start;
-      align-items: center;
     }
 
     .logo img {
-      height: 60px;
-      max-width: 100%;
+      height: 70px;
     }
 
-    /* Hero */
+    /* HERO */
     .hero {
-      padding-top: 20px;
-      padding-bottom: 96px;
+      padding-top: 24px;
+      padding-bottom: 110px;
     }
 
     h1 {
-      font-size: 22px;
-      line-height: 1.2;
-      letter-spacing: -0.03em;
-      margin: 0 0 20px;
+      font-size: 34px;
+      line-height: 1.08;
+      letter-spacing: -0.04em;
+      margin: 0 0 18px;
+    }
+
+    @media (min-width: 768px) {
+      h1 {
+        font-size: 58px;
+      }
     }
 
     h2 {
       font-size: 22px;
-      margin: 0 0 12px;
+      margin: 0 0 14px;
       font-weight: 600;
-      letter-spacing: -0.01em;
+      letter-spacing: -0.02em;
     }
 
     p {
       font-size: 16px;
       color: var(--muted);
-      margin: 0 0 16px;
-      max-width: 640px;
+      margin: 0 0 14px;
+      max-width: 680px;
     }
 
     .subtle {
@@ -89,7 +109,7 @@
       color: #8a8f98;
     }
 
-    /* Actions */
+    /* CTA */
     .actions {
       display: flex;
       flex-direction: column;
@@ -99,16 +119,21 @@
     }
 
     .btn {
+      display: inline-block;
       padding: 12px 16px;
-      border-radius: 8px;
+      border-radius: 10px;
       font-size: 14px;
       cursor: pointer;
-      border: none;
-      background: var(--text);
-      color: white;
-      display: inline-block;
       text-decoration: none;
       text-align: center;
+      background: var(--text);
+      color: white;
+      transition: all 0.2s ease;
+    }
+
+    .btn:hover {
+      transform: translateY(-1px);
+      opacity: 0.9;
     }
 
     a {
@@ -132,42 +157,21 @@
     .grid {
       display: grid;
       grid-template-columns: 1fr;
-      gap: 28px;
+      gap: 36px;
+    }
+
+    @media (min-width: 768px) {
+      .grid {
+        grid-template-columns: 1fr 1fr;
+        gap: 64px;
+      }
     }
 
     /* Footer */
     footer {
-      padding: 40px 0;
+      padding: 48px 0;
       color: var(--muted);
       font-size: 14px;
-    }
-
-    /* Desktop enhancements */
-    @media (min-width: 768px) {
-      h1 {
-        font-size: 48px;
-      }
-
-      .actions {
-        flex-direction: row;
-        align-items: center;
-        max-width: none;
-      }
-
-      .grid {
-        grid-template-columns: 1fr 1fr;
-        gap: 60px;
-      }
-
-      .logo img {
-        height: 150px;
-      }
-    }
-
-    @media (min-width: 1100px) {
-      h1 {
-        font-size: 56px;
-      }
     }
 
   </style>
@@ -183,48 +187,55 @@
 
   <!-- HERO -->
   <section class="container hero">
-    <h1>Hiring ML & AI Engineers for Early-Stage Startups</h1>
+    <h1>Hiring ML & AI Engineers for High-Growth Startups</h1>
 
     <p>
-      Brunel Search partners with YC-backed and high-growth startups to hire exceptional ML engineers, research engineers, and audio/speech specialists.
+      Brunel Search helps YC-backed and fast-scaling startups hire exceptional ML engineers, research engineers, and audio AI specialists.
     </p>
 
     <p class="subtle">
-      AI is the next industrial revolution — and the engineers you hire now define who wins it.
+      We connect founders with engineers who actually move research and production forward — not just CVs.
     </p>
+
+    <div class="actions">
+      <a class="btn" href="mailto:info@brunelsearch.com">
+        Get in touch
+      </a>
+      <a href="mailto:info@brunelsearch.com">info@brunelsearch.com</a>
+    </div>
   </section>
 
   <!-- WHAT WE DO -->
   <section class="container">
     <h2>What we do</h2>
-    <p>We help early-stage startups hire:</p>
+    <p>We specialise in technical hiring for AI-native companies:</p>
     <ul>
-      <li>ML Engineers (Applied / Production)</li>
-      <li>Research Engineers</li>
-      <li>Audio / Speech Engineers</li>
+      <li>ML Engineers (Applied & Production Systems)</li>
+      <li>Research Engineers (LLMs, Audio, Generative AI)</li>
+      <li>Speech & Audio ML Engineers</li>
     </ul>
   </section>
 
-  <!-- TWO COLUMN -->
+  <!-- WHY + TRACK RECORD -->
   <section class="container">
     <div class="grid">
       <div>
         <h2>Why Brunel Search</h2>
-        <p><strong>Deep technical understanding.</strong> We know what good looks like in ML, audio, and generative AI.</p>
-        <p><strong>Curated network.</strong> Access to highly relevant engineers, not generic applicants.</p>
-        <p><strong>High-quality vetting.</strong> We send only 2–3 candidates you actually want to hire.</p>
+        <p><strong>Deep technical understanding.</strong> We know what strong ML engineering actually looks like in practice.</p>
+        <p><strong>Curated network.</strong> No spam — only relevant, high-signal candidates.</p>
+        <p><strong>Precision matching.</strong> Typically 2–3 strong candidates per role.</p>
       </div>
 
       <div>
         <h2>Track record</h2>
-        <p>30+ engineers placed in audio and speech domains.</p>
-        <p>Senior hires across robotics, AI, and HPC companies.</p>
-        <p>Trusted by YC-backed and high-growth startups.</p>
+        <p>30+ engineers placed across audio, speech, and ML infrastructure.</p>
+        <p>Senior hires into robotics, AI, and high-performance compute startups.</p>
+        <p>Trusted by YC-backed and high-growth teams.</p>
       </div>
     </div>
   </section>
 
-  <!-- OPEN ROLES -->
+  <!-- ROLES -->
   <section class="container">
     <h2>Open roles</h2>
     <ul>
@@ -232,25 +243,21 @@
       <li>Research Engineer — Audio AI (YC-backed)</li>
       <li>ML Engineer — Production Systems</li>
     </ul>
-
-    <p style="margin-top:16px;">
-      Send your CV to <a href="mailto:info@brunelsearch.com">info@brunelsearch.com</a>
-    </p>
   </section>
 
   <!-- FEES -->
   <section class="container">
     <h2>Fees</h2>
     <p>
-      We operate on a contingent basis, typically 20–25% of first-year compensation depending on the role.
-      No upfront cost — you only pay when you hire.
+      We work on a contingent model, typically 20–25% of first-year compensation.
+      No upfront fees — only pay on successful hire.
     </p>
   </section>
 
-  <!-- CTA -->
+  <!-- FINAL CTA -->
   <section class="container">
     <h2>Build your team</h2>
-    <p>Tell us what you're hiring for and we’ll connect you with top-tier candidates.</p>
+    <p>Tell us what you're hiring for and we’ll introduce you to top-tier ML talent.</p>
 
     <div class="actions">
       <a class="btn" href="mailto:info@brunelsearch.com">
