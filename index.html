@@ -13,17 +13,10 @@
       --text: #111111;
       --muted: #6b7280;
       --border: #e6e6e6;
-      --max: 1040px;
       --content-width: 900px;
-
-      --space-1: 6px;
-      --space-2: 10px;
-      --space-3: 16px;
-      --space-4: 24px;
-      --space-5: 36px;
-      --space-6: 56px;
       --space-7: 84px;
-      --space-8: 110px;
+      --space-4: 24px;
+      --space-3: 16px;
     }
 
     * { box-sizing: border-box; }
@@ -38,7 +31,7 @@
     }
 
     .container {
-      max-width: var(--max);
+      max-width: 1040px;
       margin: 0 auto;
       padding: 0 20px;
     }
@@ -67,60 +60,63 @@
 
     .nav-inner {
       display: flex;
-      justify-content: space-between;
       align-items: center;
       padding: 12px 0;
     }
 
-    .nav-logo img { height: 54px; }
+    .nav-logo img {
+      height: 54px;
+    }
 
     .nav-links {
       display: flex;
       gap: 18px;
       font-size: 13px;
       color: var(--muted);
+      margin-left: auto;
     }
 
     .nav-links a {
       text-decoration: none;
       color: var(--muted);
+      padding: 6px 8px;
+      border-radius: 6px;
+      transition: all 0.2s ease;
     }
 
-    .nav-links a:hover { color: var(--text); }
+    .nav-links a:hover {
+      color: var(--text);
+    }
 
-    .nav-cta a {
-      padding: 8px 12px;
-      border-radius: 8px;
-      background: var(--text);
-      color: white;
-      text-decoration: none;
-      font-size: 12px;
-      font-weight: 500;
+    /* ACTIVE STATE */
+    .nav-links a.active {
+      color: var(--text);
+      background: rgba(0,0,0,0.06);
     }
 
     /* HERO */
     .hero {
-      padding-top: var(--space-5);
-      padding-bottom: var(--space-8);
+      padding-top: 40px;
+      padding-bottom: 84px;
     }
 
     h1 {
       font-size: clamp(22px, 5vw, 48px);
       line-height: 1.05;
       letter-spacing: -0.04em;
-      margin: 0 0 var(--space-3);
+      margin: 0 0 16px;
     }
 
     h2 {
       font-size: 22px;
-      margin: 0 0 var(--space-3);
+      margin: 0 0 16px;
       font-weight: 600;
     }
 
     p {
       font-size: 16px;
       color: var(--muted);
-      margin: 0 0 var(--space-3);
+      margin: 0 0 16px;
     }
 
     .subtle {
@@ -128,6 +124,7 @@
       color: #8a8f98;
     }
 
+    /* BUTTON */
     .btn {
       display: inline-block;
       padding: 12px 16px;
@@ -138,35 +135,21 @@
       font-size: 14px;
     }
 
-    .actions { margin-top: var(--space-4); }
-
-    /* GRID */
-    .grid {
-      display: grid;
-      grid-template-columns: 1fr;
-      gap: var(--space-5);
-    }
-
-    @media (min-width: 768px) {
-      .grid {
-        grid-template-columns: 1fr 1fr;
-        gap: var(--space-6);
-      }
-    }
+    .actions { margin-top: 24px; }
 
     /* ACCORDION */
     .accordion {
-      margin-top: var(--space-4);
+      margin-top: 24px;
       display: flex;
       flex-direction: column;
-      gap: var(--space-3);
+      gap: 16px;
     }
 
     .job {
       border: 1px solid var(--border);
       border-radius: 12px;
-      background: rgba(255,255,255,0.4);
       overflow: hidden;
+      background: rgba(255,255,255,0.4);
     }
 
     .job-title {
@@ -175,13 +158,9 @@
       padding: 14px;
       font-size: 14px;
       font-weight: 500;
-      background: transparent;
       border: none;
+      background: transparent;
       cursor: pointer;
-    }
-
-    .job-title:hover {
-      background: rgba(0,0,0,0.03);
     }
 
     .job-body {
@@ -196,7 +175,7 @@
     }
 
     footer {
-      padding: var(--space-7) 0;
+      padding: 84px 0;
       color: var(--muted);
       font-size: 14px;
     }
@@ -219,15 +198,11 @@
         <a href="#pricing">Pricing</a>
       </div>
 
-      <div class="nav-cta">
-        <a href="mailto:info@brunelsearch.com">Get in touch</a>
-      </div>
-
     </div>
   </div>
 
   <!-- HERO -->
-  <section class="container hero content">
+  <section class="container content hero">
     <h1>We build speech and audio AI teams.</h1>
 
     <p>
@@ -260,7 +235,7 @@
     </p>
 
     <p class="subtle">
-      CTO placement at a VC-backed music AI company • Founding AI Research Engineers into a Series A speech AI company • ML Engineers into generative audio startups • Embedded engineers for hardware/software AI systems
+      CTO placement at a VC-backed music AI company • Founding AI Research Engineers into Series A speech AI companies • ML Engineers into generative audio startups
     </p>
   </section>
 
@@ -301,21 +276,15 @@
     <h2>Pricing</h2>
 
     <div class="grid">
-
       <div>
         <h3>Contingency</h3>
-        <p>
-          <!-- add copy later -->
-        </p>
+        <p></p>
       </div>
 
       <div>
         <h3>Retained Projects</h3>
-        <p>
-          <!-- add copy later -->
-        </p>
+        <p></p>
       </div>
-
     </div>
   </section>
 
@@ -324,9 +293,34 @@
   </footer>
 
   <script>
+    // accordion
     document.querySelectorAll('.job').forEach(job => {
       job.querySelector('.job-title').addEventListener('click', () => {
         job.classList.toggle('open');
+      });
+    });
+
+    // active nav scroll tracking
+    const sections = ["about", "jobs", "pricing"].map(id => document.getElementById(id));
+    const navLinks = document.querySelectorAll(".nav-links a");
+
+    window.addEventListener("scroll", () => {
+      let current = "";
+
+      sections.forEach(section => {
+        const top = section.offsetTop - 120;
+        const height = section.offsetHeight;
+
+        if (window.scrollY >= top && window.scrollY < top + height) {
+          current = section.id;
+        }
+      });
+
+      navLinks.forEach(link => {
+        link.classList.remove("active");
+        if (link.getAttribute("href") === "#" + current) {
+          link.classList.add("active");
+        }
       });
     });
   </script>
