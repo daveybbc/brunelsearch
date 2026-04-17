@@ -16,7 +16,9 @@
       --max: 1040px;
     }
 
-    * { box-sizing: border-box; }
+    * {
+      box-sizing: border-box;
+    }
 
     body {
       margin: 0;
@@ -34,29 +36,26 @@
     }
 
     section {
-      padding: 84px 0;
+      padding: 86px 0;
     }
 
     section + section {
       border-top: 1px solid var(--border);
     }
 
-    /* ===================== */
-    /* NAV (UPGRADED) */
-    /* ===================== */
+    /* ================= NAV ================= */
     .nav {
       position: sticky;
       top: 0;
       z-index: 1000;
-      background: rgba(247, 246, 243, 0.85);
+      background: rgba(247, 246, 243, 0.88);
       backdrop-filter: blur(10px);
       border-bottom: 1px solid var(--border);
       transition: box-shadow 0.2s ease;
     }
 
-    /* subtle shadow on scroll */
     .nav.scrolled {
-      box-shadow: 0 6px 20px rgba(0,0,0,0.05);
+      box-shadow: 0 8px 24px rgba(0,0,0,0.06);
     }
 
     .nav-inner {
@@ -66,12 +65,10 @@
       padding: 12px 0;
     }
 
-    /* bigger logo */
     .nav-logo img {
       height: 54px;
     }
 
-    /* nav links */
     .nav-links {
       display: flex;
       gap: 18px;
@@ -89,7 +86,6 @@
       color: var(--text);
     }
 
-    /* smaller CTA button */
     .nav-cta a {
       display: inline-block;
       padding: 8px 12px;
@@ -99,7 +95,7 @@
       text-decoration: none;
       font-size: 12px;
       font-weight: 500;
-      transition: all 0.2s ease;
+      transition: 0.2s ease;
     }
 
     .nav-cta a:hover {
@@ -107,12 +103,7 @@
       transform: translateY(-1px);
     }
 
-    /* HERO */
-    .hero {
-      padding-top: 48px;
-      padding-bottom: 120px;
-    }
-
+    /* ================= HERO ================= */
     h1 {
       font-size: 34px;
       line-height: 1.05;
@@ -121,7 +112,9 @@
     }
 
     @media (min-width: 768px) {
-      h1 { font-size: 60px; }
+      h1 {
+        font-size: 60px;
+      }
     }
 
     h2 {
@@ -134,7 +127,7 @@
       font-size: 16px;
       color: var(--muted);
       margin: 0 0 14px;
-      max-width: 720px;
+      max-width: 760px;
     }
 
     .subtle {
@@ -156,7 +149,7 @@
       margin-top: 28px;
     }
 
-    /* GRID */
+    /* ================= GRID ================= */
     .grid {
       display: grid;
       grid-template-columns: 1fr;
@@ -170,6 +163,7 @@
       }
     }
 
+    /* ================= FOOTER ================= */
     footer {
       padding: 48px 0;
       color: var(--muted);
@@ -185,18 +179,16 @@
   <div class="nav" id="nav">
     <div class="container nav-inner">
 
-      <!-- logo -->
       <div class="nav-logo">
         <img src="logo-transparent.png" alt="Brunel Search Logo">
       </div>
 
-      <!-- links -->
       <div class="nav-links">
         <a href="#what">What we do</a>
+        <a href="#placed">Placements</a>
         <a href="#roles">Roles</a>
       </div>
 
-      <!-- CTA -->
       <div class="nav-cta">
         <a href="mailto:info@brunelsearch.com">Get in touch</a>
       </div>
@@ -205,13 +197,17 @@
   </div>
 
   <!-- HERO -->
-  <section class="container hero">
+  <section class="container">
     <h1>
-      Specialist search for AI-native engineering teams.
+      Specialist search for Speech, Audio & AI systems engineering teams.
     </h1>
 
     <p>
-      Brunel Search focuses on hiring engineers at the intersection of machine learning research and production systems.
+      Brunel Search is a specialist talent partner for companies building speech, audio, and multimodal AI systems where engineering quality directly determines product performance.
+    </p>
+
+    <p>
+      We focus on hiring engineers working at the intersection of machine learning, software engineering, and real-world product systems — not generic software roles.
     </p>
 
     <div class="actions">
@@ -219,28 +215,118 @@
     </div>
   </section>
 
-  <!-- WHAT -->
-  <section class="container" id="what">
-    <h2>What we do</h2>
-    <p>We specialise in technical hiring for AI systems where signal is hard and context matters.</p>
-  </section>
-
-  <!-- WORK -->
-  <section class="container">
+  <!-- WHAT YOU'VE PLACED -->
+  <section class="container" id="placed">
     <h2>What we’ve placed</h2>
-    <p>ML Engineers • LLM Engineers • Speech & Audio AI Engineers • ML Infrastructure Engineers</p>
+
+    <p>
+      We’ve supported hiring across product-focused engineering teams building AI-native speech and audio systems.
+    </p>
+
+    <p>
+      This includes product-driven ML and engineering roles across early-stage and scaling companies.
+    </p>
+
+    <p class="subtle">
+      Recent placements span ML Engineers, AI Research Engineers, Computer Vision Engineers, Full Stack Engineers, SDETs, and Embedded Engineers working on integrated AI software and hardware systems.
+    </p>
+
+    <p>
+      Highlights include:
+    </p>
+
+    <p class="subtle">
+      • CTO placement at a VC-backed music AI company (global-scale product organisation)  
+      • Founding AI Research Engineers into a Series A speech AI company (product-critical roles)  
+      • Multiple engineers into generative audio and speech AI startups building customer-facing products  
+      • Embedded + systems engineers for hardware/software AI-integrated platforms  
+    </p>
   </section>
 
-  <!-- ROLES -->
+  <!-- WHAT YOU WORK ON -->
+  <section class="container" id="what">
+    <h2>What we work on</h2>
+
+    <div class="grid">
+      <div>
+        <p><strong>Speech & Audio AI</strong></p>
+        <p>Speech recognition, generative audio, voice AI systems, and real-time audio intelligence products.</p>
+
+        <p><strong>Machine Learning Engineering</strong></p>
+        <p>Applied ML engineers building production models, LLM-based systems, and scalable AI products.</p>
+      </div>
+
+      <div>
+        <p><strong>AI Research Engineering</strong></p>
+        <p>Engineers bridging model development, experimentation, and production deployment in AI-native companies.</p>
+
+        <p><strong>Systems & Embedded AI</strong></p>
+        <p>Engineers working on tightly integrated software/hardware AI systems and evaluation infrastructure.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- CLIENT PROFILE -->
+  <section class="container">
+    <h2>Who we work with</h2>
+
+    <p>
+      We partner primarily with YC-backed startups and venture-backed companies building AI-native products in speech, audio, and multimodal AI.
+    </p>
+
+    <p>
+      We work best with established technical teams that need precision hiring for senior and high-impact engineering roles.
+    </p>
+  </section>
+
+  <!-- LIVE ROLES -->
   <section class="container" id="roles">
     <h2>Live roles</h2>
-    <p>Founding ML Engineer • Research Engineer • Audio AI Engineer • LLM Engineer</p>
+
+    <p class="subtle">Active searches across speech, audio, and AI systems engineering:</p>
+
+    <div class="grid">
+
+      <div>
+        <p><strong>Founding ML Engineer — Generative Audio (VC-backed)</strong></p>
+        <p>Building real-time generative audio systems for next-generation media applications.</p>
+      </div>
+
+      <div>
+        <p><strong>AI Research Engineer — Speech AI (Series A)</strong></p>
+        <p>Core model development for speech understanding and transcription systems.</p>
+      </div>
+
+      <div>
+        <p><strong>ML Engineer — Production Speech Systems</strong></p>
+        <p>Scaling inference and deployment pipelines for speech AI products.</p>
+      </div>
+
+      <div>
+        <p><strong>Audio ML Engineer — Real-time Systems</strong></p>
+        <p>Low-latency generative audio and voice AI systems.</p>
+      </div>
+
+      <div>
+        <p><strong>Full Stack Engineer — AI Product Infrastructure</strong></p>
+        <p>Building user-facing AI product systems in speech and audio domains.</p>
+      </div>
+
+      <div>
+        <p><strong>Embedded / Systems Engineer — AI Hardware Integration</strong></p>
+        <p>Software + hardware integration for AI-enabled audio and speech systems.</p>
+      </div>
+
+    </div>
   </section>
 
   <!-- CTA -->
   <section class="container">
     <h2>Build your team</h2>
-    <p>If you're hiring in AI systems engineering, we can help you find the right talent.</p>
+
+    <p>
+      If you're building speech, audio, or AI systems where engineering quality directly impacts product capability, we can help you hire the right people.
+    </p>
 
     <div class="actions">
       <a class="btn" href="mailto:info@brunelsearch.com">Get in touch</a>
@@ -251,16 +337,12 @@
     © 2026 Brunel Search
   </footer>
 
-  <!-- SCROLL SCRIPT -->
+  <!-- SCROLL EFFECT -->
   <script>
     const nav = document.getElementById('nav');
 
     window.addEventListener('scroll', () => {
-      if (window.scrollY > 10) {
-        nav.classList.add('scrolled');
-      } else {
-        nav.classList.remove('scrolled');
-      }
+      nav.classList.toggle('scrolled', window.scrollY > 10);
     });
   </script>
 
