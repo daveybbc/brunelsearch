@@ -27,29 +27,61 @@
       color: var(--text);
       line-height: 1.6;
       -webkit-font-smoothing: antialiased;
-      text-rendering: optimizeLegibility;
     }
 
-    /* Layout */
+    /* Container */
     .container {
       max-width: var(--max);
       margin: 0 auto;
       padding: 0 20px;
     }
 
+    /* ===================== */
+    /* STICKY NAV */
+    /* ===================== */
+    .nav {
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      background: rgba(247, 246, 243, 0.8);
+      backdrop-filter: blur(10px);
+      border-bottom: 1px solid var(--border);
+    }
+
+    .nav-inner {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 14px 0;
+    }
+
+    .nav-logo img {
+      height: 40px;
+    }
+
+    .nav-cta a {
+      display: inline-block;
+      padding: 10px 14px;
+      border-radius: 8px;
+      background: var(--text);
+      color: white;
+      text-decoration: none;
+      font-size: 13px;
+      transition: 0.2s ease;
+    }
+
+    .nav-cta a:hover {
+      opacity: 0.85;
+      transform: translateY(-1px);
+    }
+
+    /* Sections */
     section {
       padding: 84px 0;
       opacity: 0;
-      transform: translateY(12px);
-      animation: fadeIn 0.8s ease forwards;
+      transform: translateY(10px);
+      animation: fadeIn 0.7s ease forwards;
     }
-
-    section:nth-child(1) { animation-delay: 0.05s; }
-    section:nth-child(2) { animation-delay: 0.10s; }
-    section:nth-child(3) { animation-delay: 0.15s; }
-    section:nth-child(4) { animation-delay: 0.20s; }
-    section:nth-child(5) { animation-delay: 0.25s; }
-    section:nth-child(6) { animation-delay: 0.30s; }
 
     section + section {
       border-top: 1px solid var(--border);
@@ -62,18 +94,9 @@
       }
     }
 
-    /* Header */
-    header {
-      padding: 28px 0;
-    }
-
-    .logo img {
-      height: 70px;
-    }
-
-    /* HERO */
+    /* Hero */
     .hero {
-      padding-top: 24px;
+      padding-top: 40px;
       padding-bottom: 110px;
     }
 
@@ -94,7 +117,6 @@
       font-size: 22px;
       margin: 0 0 14px;
       font-weight: 600;
-      letter-spacing: -0.02em;
     }
 
     p {
@@ -109,7 +131,7 @@
       color: #8a8f98;
     }
 
-    /* CTA */
+    /* CTA buttons */
     .actions {
       display: flex;
       flex-direction: column;
@@ -122,35 +144,23 @@
       display: inline-block;
       padding: 12px 16px;
       border-radius: 10px;
-      font-size: 14px;
-      cursor: pointer;
-      text-decoration: none;
-      text-align: center;
       background: var(--text);
       color: white;
-      transition: all 0.2s ease;
+      text-decoration: none;
+      text-align: center;
+      font-size: 14px;
+      transition: 0.2s ease;
     }
 
     .btn:hover {
+      opacity: 0.85;
       transform: translateY(-1px);
-      opacity: 0.9;
     }
 
     a {
       color: var(--text);
       text-decoration: underline;
       font-size: 14px;
-    }
-
-    /* Lists */
-    ul {
-      padding-left: 18px;
-      margin: 12px 0 0;
-      color: var(--muted);
-    }
-
-    li {
-      margin-bottom: 8px;
     }
 
     /* Grid */
@@ -179,11 +189,20 @@
 
 <body>
 
-  <header class="container">
-    <div class="logo">
-      <img src="logo-transparent.png" alt="Brunel Search Logo">
+  <!-- ===================== -->
+  <!-- STICKY NAV -->
+  <!-- ===================== -->
+  <div class="nav">
+    <div class="container nav-inner">
+      <div class="nav-logo">
+        <img src="logo-transparent.png" alt="Brunel Search Logo">
+      </div>
+
+      <div class="nav-cta">
+        <a href="mailto:info@brunelsearch.com">Get in touch</a>
+      </div>
     </div>
-  </header>
+  </div>
 
   <!-- HERO -->
   <section class="container hero">
@@ -198,10 +217,7 @@
     </p>
 
     <div class="actions">
-      <a class="btn" href="mailto:info@brunelsearch.com">
-        Get in touch
-      </a>
-      <a href="mailto:info@brunelsearch.com">info@brunelsearch.com</a>
+      <a class="btn" href="mailto:info@brunelsearch.com">Get in touch</a>
     </div>
   </section>
 
@@ -209,28 +225,24 @@
   <section class="container">
     <h2>What we do</h2>
     <p>We specialise in technical hiring for AI-native companies:</p>
-    <ul>
-      <li>ML Engineers (Applied & Production Systems)</li>
-      <li>Research Engineers (LLMs, Audio, Generative AI)</li>
-      <li>Speech & Audio ML Engineers</li>
-    </ul>
+    <p class="subtle">ML Engineers, Research Engineers, Audio & Speech Engineers</p>
   </section>
 
-  <!-- WHY + TRACK RECORD -->
+  <!-- WHY -->
   <section class="container">
     <div class="grid">
       <div>
         <h2>Why Brunel Search</h2>
-        <p><strong>Deep technical understanding.</strong> We know what strong ML engineering actually looks like in practice.</p>
-        <p><strong>Curated network.</strong> No spam — only relevant, high-signal candidates.</p>
-        <p><strong>Precision matching.</strong> Typically 2–3 strong candidates per role.</p>
+        <p><strong>Deep technical understanding.</strong> We know what strong ML engineering actually looks like.</p>
+        <p><strong>Curated network.</strong> No spam — only high-signal candidates.</p>
+        <p><strong>Precision matching.</strong> 2–3 strong candidates per role.</p>
       </div>
 
       <div>
         <h2>Track record</h2>
-        <p>30+ engineers placed across audio, speech, and ML infrastructure.</p>
-        <p>Senior hires into robotics, AI, and high-performance compute startups.</p>
-        <p>Trusted by YC-backed and high-growth teams.</p>
+        <p>30+ engineers placed in ML and audio AI roles.</p>
+        <p>Senior hires into robotics, AI, and infrastructure startups.</p>
+        <p>Trusted by YC-backed companies.</p>
       </div>
     </div>
   </section>
@@ -238,31 +250,26 @@
   <!-- ROLES -->
   <section class="container">
     <h2>Open roles</h2>
-    <ul>
-      <li>Founding ML Engineer — Generative Audio Startup (SF / Remote)</li>
-      <li>Research Engineer — Audio AI (YC-backed)</li>
-      <li>ML Engineer — Production Systems</li>
-    </ul>
+    <p class="subtle">
+      Founding ML Engineer • Research Engineer • Audio AI Engineer
+    </p>
   </section>
 
   <!-- FEES -->
   <section class="container">
     <h2>Fees</h2>
     <p>
-      We work on a contingent model, typically 20–25% of first-year compensation.
-      No upfront fees — only pay on successful hire.
+      Contingent model (20–25% of first-year compensation). No upfront fees.
     </p>
   </section>
 
-  <!-- FINAL CTA -->
+  <!-- CTA -->
   <section class="container">
     <h2>Build your team</h2>
-    <p>Tell us what you're hiring for and we’ll introduce you to top-tier ML talent.</p>
+    <p>Tell us what you're hiring for and we’ll introduce you to top ML talent.</p>
 
     <div class="actions">
-      <a class="btn" href="mailto:info@brunelsearch.com">
-        Get in touch
-      </a>
+      <a class="btn" href="mailto:info@brunelsearch.com">Get in touch</a>
     </div>
   </section>
 
