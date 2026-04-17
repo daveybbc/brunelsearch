@@ -14,11 +14,8 @@
       --muted: #6b7280;
       --border: #e6e6e6;
       --max: 1040px;
-
-      /* GRID SYSTEM */
       --text-width: 760px;
 
-      /* vertical rhythm */
       --space-1: 6px;
       --space-2: 10px;
       --space-3: 16px;
@@ -29,9 +26,7 @@
       --space-8: 110px;
     }
 
-    * {
-      box-sizing: border-box;
-    }
+    * { box-sizing: border-box; }
 
     body {
       margin: 0;
@@ -42,7 +37,6 @@
       -webkit-font-smoothing: antialiased;
     }
 
-    /* ================= CORE LAYOUT ================= */
     .container {
       max-width: var(--max);
       margin: 0 auto;
@@ -53,22 +47,15 @@
       max-width: var(--text-width);
     }
 
-    /* ================= SECTION GRID ================= */
     section {
       padding: var(--space-7) 0;
-    }
-
-    @media (min-width: 768px) {
-      section {
-        padding: var(--space-8) 0;
-      }
     }
 
     section + section {
       border-top: 1px solid var(--border);
     }
 
-    /* ================= NAV ================= */
+    /* NAV */
     .nav {
       position: sticky;
       top: 0;
@@ -78,10 +65,6 @@
       border-bottom: 1px solid var(--border);
     }
 
-    .nav.scrolled {
-      box-shadow: 0 8px 24px rgba(0,0,0,0.06);
-    }
-
     .nav-inner {
       display: flex;
       justify-content: space-between;
@@ -89,9 +72,7 @@
       padding: 12px 0;
     }
 
-    .nav-logo img {
-      height: 54px;
-    }
+    .nav-logo img { height: 54px; }
 
     .nav-links {
       display: flex;
@@ -105,9 +86,7 @@
       color: var(--muted);
     }
 
-    .nav-links a:hover {
-      color: var(--text);
-    }
+    .nav-links a:hover { color: var(--text); }
 
     .nav-cta a {
       display: inline-block;
@@ -120,7 +99,7 @@
       font-weight: 500;
     }
 
-    /* ================= HERO ================= */
+    /* HERO */
     .hero {
       padding-top: var(--space-5);
       padding-bottom: var(--space-8);
@@ -143,16 +122,13 @@
       font-size: 16px;
       color: var(--muted);
       margin: 0 0 var(--space-3);
-      line-height: 1.65;
     }
 
     .subtle {
       font-size: 14px;
       color: #8a8f98;
-      margin-top: var(--space-2);
     }
 
-    /* ================= CTA ================= */
     .btn {
       display: inline-block;
       padding: 12px 16px;
@@ -163,11 +139,9 @@
       font-size: 14px;
     }
 
-    .actions {
-      margin-top: var(--space-4);
-    }
+    .actions { margin-top: var(--space-4); }
 
-    /* ================= GRID ================= */
+    /* GRID */
     .grid {
       display: grid;
       grid-template-columns: 1fr;
@@ -181,20 +155,62 @@
       }
     }
 
-    /* ================= FOOTER ================= */
+    /* ACCORDION (LIVE ROLES) */
+    .accordion {
+      margin-top: var(--space-4);
+      display: flex;
+      flex-direction: column;
+      gap: var(--space-3);
+      max-width: var(--text-width);
+    }
+
+    .job {
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      overflow: hidden;
+      background: rgba(255,255,255,0.4);
+    }
+
+    .job-title {
+      width: 100%;
+      text-align: left;
+      padding: 14px;
+      font-size: 14px;
+      font-weight: 500;
+      background: transparent;
+      border: none;
+      cursor: pointer;
+      color: var(--text);
+    }
+
+    .job-title:hover {
+      background: rgba(0,0,0,0.03);
+    }
+
+    .job-body {
+      display: none;
+      padding: 0 14px 14px 14px;
+      color: var(--muted);
+      font-size: 14px;
+      line-height: 1.6;
+    }
+
+    .job.open .job-body {
+      display: block;
+    }
+
     footer {
       padding: var(--space-7) 0;
       color: var(--muted);
       font-size: 14px;
     }
-
   </style>
 </head>
 
 <body>
 
   <!-- NAV -->
-  <div class="nav" id="nav">
+  <div class="nav">
     <div class="container nav-inner">
 
       <div class="nav-logo">
@@ -216,9 +232,7 @@
 
   <!-- HERO -->
   <section class="container hero">
-    <h1 class="text-block">
-      We build speech and audio AI teams.
-    </h1>
+    <h1 class="text-block">We build speech and audio AI teams.</h1>
 
     <p class="text-block">
       Brunel Search partners with companies building speech, audio, and multimodal AI systems where engineering quality defines product performance.
@@ -233,7 +247,7 @@
     </div>
   </section>
 
-  <!-- WHAT WE’VE PLACED -->
+  <!-- PLACEMENTS -->
   <section class="container" id="placed">
     <h2 class="text-block">What we’ve placed</h2>
 
@@ -250,22 +264,22 @@
     </p>
   </section>
 
-  <!-- WHAT WE WORK ON -->
+  <!-- WORK -->
   <section class="container" id="what">
     <h2 class="text-block">What we work on</h2>
 
     <div class="grid">
       <div>
         <p><strong>Speech & Audio AI</strong></p>
-        <p class="text-block">Speech recognition, generative audio, voice AI systems, and real-time audio intelligence products.</p>
+        <p class="text-block">Speech recognition, generative audio, voice AI systems, and real-time products.</p>
 
         <p><strong>Machine Learning Engineering</strong></p>
-        <p class="text-block">Applied ML engineers building production models and LLM-based systems.</p>
+        <p class="text-block">Applied ML engineers building production models and LLM systems.</p>
       </div>
 
       <div>
         <p><strong>AI Research Engineering</strong></p>
-        <p class="text-block">Engineers bridging experimentation, model development, and production deployment.</p>
+        <p class="text-block">Model development, experimentation, and deployment bridging research and production.</p>
 
         <p><strong>Systems & Embedded AI</strong></p>
         <p class="text-block">Software + hardware AI systems and evaluation infrastructure.</p>
@@ -273,26 +287,41 @@
     </div>
   </section>
 
-  <!-- CLIENT PROFILE -->
-  <section class="container">
-    <h2 class="text-block">Who we work with</h2>
-
-    <p class="text-block">
-      YC-backed startups and venture-backed companies building speech, audio, and multimodal AI products.
-    </p>
-
-    <p class="text-block">
-      We work best with established technical teams hiring for senior or high-impact engineering roles.
-    </p>
-  </section>
-
-  <!-- LIVE ROLES -->
+  <!-- ROLES (ACCORDION) -->
   <section class="container" id="roles">
     <h2 class="text-block">Live roles</h2>
 
     <p class="subtle text-block">
-      Founding ML Engineer • Research Engineer • Audio AI Engineer • ML Infrastructure Engineer • Full Stack AI Engineer • Embedded Systems Engineer
+      Click a role to expand details
     </p>
+
+    <div class="accordion">
+
+      <div class="job">
+        <button class="job-title">Founding ML Engineer — Generative Audio (VC-backed)</button>
+        <div class="job-body">
+          <p>Building real-time generative audio systems for next-generation media.</p>
+          <p>Focus on model development, inference optimisation, and production deployment.</p>
+        </div>
+      </div>
+
+      <div class="job">
+        <button class="job-title">AI Research Engineer — Speech AI (Series A)</button>
+        <div class="job-body">
+          <p>Core speech model development and experimentation.</p>
+          <p>Work spans training pipelines, evaluation, and production iteration.</p>
+        </div>
+      </div>
+
+      <div class="job">
+        <button class="job-title">ML Engineer — Production Speech Systems</button>
+        <div class="job-body">
+          <p>Scaling inference systems for real-time speech AI products.</p>
+          <p>Focus on latency, reliability, and deployment at scale.</p>
+        </div>
+      </div>
+
+    </div>
   </section>
 
   <!-- CTA -->
@@ -313,10 +342,10 @@
   </footer>
 
   <script>
-    const nav = document.getElementById('nav');
-
-    window.addEventListener('scroll', () => {
-      nav.classList.toggle('scrolled', window.scrollY > 10);
+    document.querySelectorAll('.job').forEach(job => {
+      job.querySelector('.job-title').addEventListener('click', () => {
+        job.classList.toggle('open');
+      });
     });
   </script>
 
