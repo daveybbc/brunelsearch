@@ -14,8 +14,11 @@
       --muted: #6b7280;
       --border: #e6e6e6;
       --max: 1040px;
-      --text-width: 760px;
 
+      /* unified content width */
+      --content-width: 900px;
+
+      /* spacing system */
       --space-1: 6px;
       --space-2: 10px;
       --space-3: 16px;
@@ -26,7 +29,9 @@
       --space-8: 110px;
     }
 
-    * { box-sizing: border-box; }
+    * {
+      box-sizing: border-box;
+    }
 
     body {
       margin: 0;
@@ -37,16 +42,19 @@
       -webkit-font-smoothing: antialiased;
     }
 
+    /* ================= CORE LAYOUT ================= */
     .container {
       max-width: var(--max);
       margin: 0 auto;
       padding: 0 20px;
     }
 
-    .text-block {
-      max-width: var(--text-width);
+    /* THIS IS NOW YOUR SINGLE WIDTH SYSTEM */
+    .content {
+      max-width: var(--content-width);
     }
 
+    /* ================= SECTION SPACING ================= */
     section {
       padding: var(--space-7) 0;
     }
@@ -55,7 +63,7 @@
       border-top: 1px solid var(--border);
     }
 
-    /* NAV */
+    /* ================= NAV ================= */
     .nav {
       position: sticky;
       top: 0;
@@ -72,7 +80,9 @@
       padding: 12px 0;
     }
 
-    .nav-logo img { height: 54px; }
+    .nav-logo img {
+      height: 54px;
+    }
 
     .nav-links {
       display: flex;
@@ -86,7 +96,9 @@
       color: var(--muted);
     }
 
-    .nav-links a:hover { color: var(--text); }
+    .nav-links a:hover {
+      color: var(--text);
+    }
 
     .nav-cta a {
       display: inline-block;
@@ -99,7 +111,7 @@
       font-weight: 500;
     }
 
-    /* HERO */
+    /* ================= HERO ================= */
     .hero {
       padding-top: var(--space-5);
       padding-bottom: var(--space-8);
@@ -129,6 +141,7 @@
       color: #8a8f98;
     }
 
+    /* ================= BUTTON ================= */
     .btn {
       display: inline-block;
       padding: 12px 16px;
@@ -139,9 +152,11 @@
       font-size: 14px;
     }
 
-    .actions { margin-top: var(--space-4); }
+    .actions {
+      margin-top: var(--space-4);
+    }
 
-    /* GRID */
+    /* ================= GRID ================= */
     .grid {
       display: grid;
       grid-template-columns: 1fr;
@@ -155,13 +170,12 @@
       }
     }
 
-    /* ACCORDION (LIVE ROLES) */
+    /* ================= ACCORDION ================= */
     .accordion {
       margin-top: var(--space-4);
       display: flex;
       flex-direction: column;
       gap: var(--space-3);
-      max-width: var(--text-width);
     }
 
     .job {
@@ -204,6 +218,7 @@
       color: var(--muted);
       font-size: 14px;
     }
+
   </style>
 </head>
 
@@ -231,14 +246,14 @@
   </div>
 
   <!-- HERO -->
-  <section class="container hero">
-    <h1 class="text-block">We build speech and audio AI teams.</h1>
+  <section class="container hero content">
+    <h1>We build speech and audio AI teams.</h1>
 
-    <p class="text-block">
+    <p>
       Brunel Search partners with companies building speech, audio, and multimodal AI systems where engineering quality defines product performance.
     </p>
 
-    <p class="subtle text-block">
+    <p class="subtle">
       ML Engineers • Research Engineers • Audio AI Specialists • Systems Engineers
     </p>
 
@@ -248,52 +263,50 @@
   </section>
 
   <!-- PLACEMENTS -->
-  <section class="container" id="placed">
-    <h2 class="text-block">What we’ve placed</h2>
+  <section class="container content" id="placed">
+    <h2>What we’ve placed</h2>
 
-    <p class="text-block">
+    <p>
       We’ve supported hiring across product-focused engineering teams building AI-native speech and audio systems.
     </p>
 
-    <p class="text-block">
+    <p>
       This includes ML, research, full-stack, SDET, and systems engineering roles in companies where engineering directly impacts product capability.
     </p>
 
-    <p class="subtle text-block">
+    <p class="subtle">
       CTO placement at a VC-backed music AI company • Founding AI Research Engineers into a Series A speech AI company • ML Engineers into generative audio startups • Embedded engineers for hardware/software AI systems • SDET and full-stack engineers supporting AI product infrastructure
     </p>
   </section>
 
-  <!-- WORK -->
-  <section class="container" id="what">
-    <h2 class="text-block">What we work on</h2>
+  <!-- WHAT WE DO -->
+  <section class="container content" id="what">
+    <h2>What we work on</h2>
 
     <div class="grid">
       <div>
         <p><strong>Speech & Audio AI</strong></p>
-        <p class="text-block">Speech recognition, generative audio, voice AI systems, and real-time products.</p>
+        <p>Speech recognition, generative audio, voice AI systems, and real-time products.</p>
 
         <p><strong>Machine Learning Engineering</strong></p>
-        <p class="text-block">Applied ML engineers building production models and LLM systems.</p>
+        <p>Applied ML engineers building production models and LLM systems.</p>
       </div>
 
       <div>
         <p><strong>AI Research Engineering</strong></p>
-        <p class="text-block">Model development, experimentation, and deployment bridging research and production.</p>
+        <p>Model development, experimentation, and deployment bridging research and production.</p>
 
         <p><strong>Systems & Embedded AI</strong></p>
-        <p class="text-block">Software + hardware AI systems and evaluation infrastructure.</p>
+        <p>Software + hardware AI systems and evaluation infrastructure.</p>
       </div>
     </div>
   </section>
 
-  <!-- ROLES (ACCORDION) -->
-  <section class="container" id="roles">
-    <h2 class="text-block">Live roles</h2>
+  <!-- LIVE ROLES -->
+  <section class="container content" id="roles">
+    <h2>Live roles</h2>
 
-    <p class="subtle text-block">
-      Click a role to expand details
-    </p>
+    <p class="subtle">Click a role to expand details</p>
 
     <div class="accordion">
 
@@ -325,10 +338,10 @@
   </section>
 
   <!-- CTA -->
-  <section class="container">
-    <h2 class="text-block">Build your team</h2>
+  <section class="container content">
+    <h2>Build your team</h2>
 
-    <p class="text-block">
+    <p>
       If you're building speech, audio, or AI systems where engineering quality matters, we can help you hire the right people.
     </p>
 
@@ -337,7 +350,7 @@
     </div>
   </section>
 
-  <footer class="container">
+  <footer class="container content">
     © 2026 Brunel Search
   </footer>
 
