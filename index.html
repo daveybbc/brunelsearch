@@ -16,9 +16,7 @@
       --max: 1040px;
     }
 
-    * {
-      box-sizing: border-box;
-    }
+    * { box-sizing: border-box; }
 
     body {
       margin: 0;
@@ -29,45 +27,79 @@
       -webkit-font-smoothing: antialiased;
     }
 
-    /* Container */
     .container {
       max-width: var(--max);
       margin: 0 auto;
       padding: 0 20px;
     }
 
+    section {
+      padding: 84px 0;
+    }
+
+    section + section {
+      border-top: 1px solid var(--border);
+    }
+
     /* ===================== */
-    /* STICKY NAV */
+    /* NAV (UPGRADED) */
     /* ===================== */
     .nav {
       position: sticky;
       top: 0;
       z-index: 1000;
-      background: rgba(247, 246, 243, 0.8);
+      background: rgba(247, 246, 243, 0.85);
       backdrop-filter: blur(10px);
       border-bottom: 1px solid var(--border);
+      transition: box-shadow 0.2s ease;
+    }
+
+    /* subtle shadow on scroll */
+    .nav.scrolled {
+      box-shadow: 0 6px 20px rgba(0,0,0,0.05);
     }
 
     .nav-inner {
       display: flex;
       justify-content: space-between;
       align-items: center;
-      padding: 14px 0;
+      padding: 12px 0;
     }
 
+    /* bigger logo */
     .nav-logo img {
-      height: 40px;
+      height: 54px;
     }
 
+    /* nav links */
+    .nav-links {
+      display: flex;
+      gap: 18px;
+      font-size: 13px;
+      color: var(--muted);
+    }
+
+    .nav-links a {
+      text-decoration: none;
+      color: var(--muted);
+      transition: 0.2s ease;
+    }
+
+    .nav-links a:hover {
+      color: var(--text);
+    }
+
+    /* smaller CTA button */
     .nav-cta a {
       display: inline-block;
-      padding: 10px 14px;
+      padding: 8px 12px;
       border-radius: 8px;
       background: var(--text);
       color: white;
       text-decoration: none;
-      font-size: 13px;
-      transition: 0.2s ease;
+      font-size: 12px;
+      font-weight: 500;
+      transition: all 0.2s ease;
     }
 
     .nav-cta a:hover {
@@ -75,42 +107,21 @@
       transform: translateY(-1px);
     }
 
-    /* Sections */
-    section {
-      padding: 84px 0;
-      opacity: 0;
-      transform: translateY(10px);
-      animation: fadeIn 0.7s ease forwards;
-    }
-
-    section + section {
-      border-top: 1px solid var(--border);
-    }
-
-    @keyframes fadeIn {
-      to {
-        opacity: 1;
-        transform: translateY(0);
-      }
-    }
-
-    /* Hero */
+    /* HERO */
     .hero {
-      padding-top: 40px;
-      padding-bottom: 110px;
+      padding-top: 48px;
+      padding-bottom: 120px;
     }
 
     h1 {
       font-size: 34px;
-      line-height: 1.08;
+      line-height: 1.05;
       letter-spacing: -0.04em;
       margin: 0 0 18px;
     }
 
     @media (min-width: 768px) {
-      h1 {
-        font-size: 58px;
-      }
+      h1 { font-size: 60px; }
     }
 
     h2 {
@@ -123,21 +134,12 @@
       font-size: 16px;
       color: var(--muted);
       margin: 0 0 14px;
-      max-width: 680px;
+      max-width: 720px;
     }
 
     .subtle {
       font-size: 14px;
       color: #8a8f98;
-    }
-
-    /* CTA buttons */
-    .actions {
-      display: flex;
-      flex-direction: column;
-      gap: 12px;
-      margin-top: 28px;
-      max-width: 360px;
     }
 
     .btn {
@@ -147,23 +149,14 @@
       background: var(--text);
       color: white;
       text-decoration: none;
-      text-align: center;
-      font-size: 14px;
-      transition: 0.2s ease;
-    }
-
-    .btn:hover {
-      opacity: 0.85;
-      transform: translateY(-1px);
-    }
-
-    a {
-      color: var(--text);
-      text-decoration: underline;
       font-size: 14px;
     }
 
-    /* Grid */
+    .actions {
+      margin-top: 28px;
+    }
+
+    /* GRID */
     .grid {
       display: grid;
       grid-template-columns: 1fr;
@@ -177,7 +170,6 @@
       }
     }
 
-    /* Footer */
     footer {
       padding: 48px 0;
       color: var(--muted);
@@ -189,31 +181,37 @@
 
 <body>
 
-  <!-- ===================== -->
-  <!-- STICKY NAV -->
-  <!-- ===================== -->
-  <div class="nav">
+  <!-- NAV -->
+  <div class="nav" id="nav">
     <div class="container nav-inner">
+
+      <!-- logo -->
       <div class="nav-logo">
         <img src="logo-transparent.png" alt="Brunel Search Logo">
       </div>
 
+      <!-- links -->
+      <div class="nav-links">
+        <a href="#what">What we do</a>
+        <a href="#roles">Roles</a>
+      </div>
+
+      <!-- CTA -->
       <div class="nav-cta">
         <a href="mailto:info@brunelsearch.com">Get in touch</a>
       </div>
+
     </div>
   </div>
 
   <!-- HERO -->
   <section class="container hero">
-    <h1>Hiring ML & AI Engineers for High-Growth Startups</h1>
+    <h1>
+      Specialist search for AI-native engineering teams.
+    </h1>
 
     <p>
-      Brunel Search helps YC-backed and fast-scaling startups hire exceptional ML engineers, research engineers, and audio AI specialists.
-    </p>
-
-    <p class="subtle">
-      We connect founders with engineers who actually move research and production forward — not just CVs.
+      Brunel Search focuses on hiring engineers at the intersection of machine learning research and production systems.
     </p>
 
     <div class="actions">
@@ -221,52 +219,28 @@
     </div>
   </section>
 
-  <!-- WHAT WE DO -->
-  <section class="container">
+  <!-- WHAT -->
+  <section class="container" id="what">
     <h2>What we do</h2>
-    <p>We specialise in technical hiring for AI-native companies:</p>
-    <p class="subtle">ML Engineers, Research Engineers, Audio & Speech Engineers</p>
+    <p>We specialise in technical hiring for AI systems where signal is hard and context matters.</p>
   </section>
 
-  <!-- WHY -->
+  <!-- WORK -->
   <section class="container">
-    <div class="grid">
-      <div>
-        <h2>Why Brunel Search</h2>
-        <p><strong>Deep technical understanding.</strong> We know what strong ML engineering actually looks like.</p>
-        <p><strong>Curated network.</strong> No spam — only high-signal candidates.</p>
-        <p><strong>Precision matching.</strong> 2–3 strong candidates per role.</p>
-      </div>
-
-      <div>
-        <h2>Track record</h2>
-        <p>30+ engineers placed in ML and audio AI roles.</p>
-        <p>Senior hires into robotics, AI, and infrastructure startups.</p>
-        <p>Trusted by YC-backed companies.</p>
-      </div>
-    </div>
+    <h2>What we’ve placed</h2>
+    <p>ML Engineers • LLM Engineers • Speech & Audio AI Engineers • ML Infrastructure Engineers</p>
   </section>
 
   <!-- ROLES -->
-  <section class="container">
-    <h2>Open roles</h2>
-    <p class="subtle">
-      Founding ML Engineer • Research Engineer • Audio AI Engineer
-    </p>
-  </section>
-
-  <!-- FEES -->
-  <section class="container">
-    <h2>Fees</h2>
-    <p>
-      Contingent model (20–25% of first-year compensation). No upfront fees.
-    </p>
+  <section class="container" id="roles">
+    <h2>Live roles</h2>
+    <p>Founding ML Engineer • Research Engineer • Audio AI Engineer • LLM Engineer</p>
   </section>
 
   <!-- CTA -->
   <section class="container">
     <h2>Build your team</h2>
-    <p>Tell us what you're hiring for and we’ll introduce you to top ML talent.</p>
+    <p>If you're hiring in AI systems engineering, we can help you find the right talent.</p>
 
     <div class="actions">
       <a class="btn" href="mailto:info@brunelsearch.com">Get in touch</a>
@@ -276,6 +250,19 @@
   <footer class="container">
     © 2026 Brunel Search
   </footer>
+
+  <!-- SCROLL SCRIPT -->
+  <script>
+    const nav = document.getElementById('nav');
+
+    window.addEventListener('scroll', () => {
+      if (window.scrollY > 10) {
+        nav.classList.add('scrolled');
+      } else {
+        nav.classList.remove('scrolled');
+      }
+    });
+  </script>
 
 </body>
 </html>
