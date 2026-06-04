@@ -1,8 +1,12 @@
+```html
 <!DOCTYPE html>
 <html lang="en">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Brunel Search</title>
+
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
 
 <style>
@@ -12,7 +16,9 @@
   --muted: #6b7280;
 }
 
-* { box-sizing: border-box; }
+* {
+  box-sizing: border-box;
+}
 
 body {
   margin: 0;
@@ -26,10 +32,9 @@ body {
   -webkit-font-smoothing: antialiased;
 }
 
-```css
 .container {
-  max-width: 700px;
   width: 100%;
+  max-width: 700px;
   padding: 40px 24px;
   text-align: center;
 }
@@ -46,19 +51,42 @@ body {
   margin: 0 auto;
 }
 
-h1 {
-  font-size: clamp(36px, 6vw, 64px);
-  font-weight: 600;
-  letter-spacing: -0.04em;
-  margin: 0 0 16px;
-}
-
 p {
   font-size: 18px;
   line-height: 1.7;
   color: var(--muted);
   margin: 0 auto 32px;
   max-width: 600px;
+}
+
+.btn {
+  display: inline-block;
+  background: #111111;
+  color: white;
+  text-decoration: none;
+  padding: 14px 20px;
+  border-radius: 10px;
+  font-size: 14px;
+  transition: all 0.2s ease;
+}
+
+.btn:hover {
+  opacity: 0.9;
+  transform: translateY(-1px);
+}
+
+.email {
+  margin-top: 20px;
+  font-size: 14px;
+}
+
+.email a {
+  color: var(--text);
+  text-decoration: none;
+}
+
+.email a:hover {
+  opacity: 0.7;
 }
 
 @media (max-width: 768px) {
@@ -82,26 +110,28 @@ p {
 </style>
 </head>
 
-```html
 <body>
-  <div class="container">
 
-    <div class="logo">
-      <img src="logo-transparent.png" alt="Brunel Search">
-    </div>
+<div class="container">
 
-    <p>
-      Specialist search for ML Engineers, Research Engineers, and Audio & Speech AI talent across high-growth startups.
-    </p>
-
-    <a class="btn" href="mailto:info@brunelsearch.com">
-      Connect
-    </a>
-
-    <div class="email">
-      <a href="mailto:info@brunelsearch.com">info@brunelsearch.com</a>
-    </div>
-
+  <div class="logo">
+    <img src="logo-transparent.png" alt="Brunel Search">
   </div>
+
+  <p>
+    Specialist search for ML Engineers, Research Engineers, and Audio & Speech AI talent for high-growth startups across the USA
+  </p>
+
+  <a class="btn" href="mailto:info@brunelsearch.com">
+    Connect
+  </a>
+
+  <div class="email">
+    <a href="mailto:info@brunelsearch.com">info@brunelsearch.com</a>
+  </div>
+
+</div>
+
 </body>
 </html>
+```
