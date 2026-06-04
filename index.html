@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Brunel Search</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+<style>
+:root {
+  --bg: #F7F6F3;
+  --text: #111111;
+  --muted: #6b7280;
+}
+
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  font-family: Inter, sans-serif;
+  background: var(--bg);
+  color: var(--text);
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  -webkit-font-smoothing: antialiased;
+}
+
+.container {
+  max-width: 700px;
+  padding: 40px 24px;
+  text-align: center;
+}
+
+.logo {
+  margin-bottom: 32px;
+}
+
+.logo img {
+  width: 120px;
+  height: auto;
+}
+
+h1 {
+  font-size: clamp(36px, 6vw, 64px);
+  font-weight: 600;
+  letter-spacing: -0.04em;
+  margin: 0 0 16px;
+}
+
+p {
+  font-size: 18px;
+  line-height: 1.7;
+  color: var(--muted);
+  margin: 0 auto 32px;
+  max-width: 600px;
+}
+
+.btn {
+  display: inline-block;
+  background: #111111;
+  color: white;
+  text-decoration: none;
+  padding: 14px 20px;
+  border-radius: 10px;
+  font-size: 14px;
+  transition: all 0.2s ease;
+}
+
+.btn:hover {
+  opacity: 0.9;
+  transform: translateY(-1px);
+}
+
+.email {
+  margin-top: 20px;
+  font-size: 14px;
+}
+
+.email a {
+  color: var(--text);
+  text-decoration: none;
+}
+</style>
+</head>
+
+<body>
+<div class="container">
+
+  <div class="logo">
+    <img src="logo.png" alt="Brunel Search">
+  </div>
+
+  <h1>Brunel Search</h1>
+
+  <p>
+    Specialist search for ML Engineers, Research Engineers, and Audio & Speech AI talent across high-growth startups.
+  </p>
+
+  <a class="btn" href="mailto:info@brunelsearch.com">
+    Connect
+  </a>
+
+  <div class="email">
+    <a href="mailto:info@brunelsearch.com">info@brunelsearch.com</a>
+  </div>
+
+</div>
+</body>
+</html>
