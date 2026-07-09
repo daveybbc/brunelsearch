@@ -3,7 +3,8 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Brunel Search</title>
+  <title>Brunel Search — Speech & Audio AI Talent</title>
+  <meta name="description" content="Brunel Search is a specialist search partner for senior ML, research, and audio AI engineering talent at high-growth speech and audio AI startups." />
 
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
 
@@ -13,11 +14,9 @@
       --text: #111111;
       --muted: #6b7280;
       --border: #e6e6e6;
+      --card-bg: rgba(255,255,255,0.5);
       --content-width: 900px;
       --space-7: 84px;
-      --space-5: 36px;
-      --space-4: 24px;
-      --space-3: 16px;
     }
 
     * { box-sizing: border-box; }
@@ -43,11 +42,22 @@
 
     section {
       padding: var(--space-7) 0;
+      scroll-margin-top: 80px;
     }
 
     section + section {
       border-top: 1px solid var(--border);
     }
+
+    ul {
+      margin: 0 0 16px;
+      padding-left: 18px;
+      color: var(--muted);
+      font-size: 15px;
+    }
+
+    ul li { margin-bottom: 8px; }
+    ul li:last-child { margin-bottom: 0; }
 
     /* NAV */
     .nav {
@@ -134,7 +144,11 @@
       color: white;
       text-decoration: none;
       font-size: 14px;
+      border: none;
+      cursor: pointer;
     }
+
+    .btn:hover { opacity: 0.9; }
 
     .actions { margin-top: 24px; }
 
@@ -143,6 +157,7 @@
       display: grid;
       grid-template-columns: 1fr;
       gap: 20px;
+      margin-top: 8px;
     }
 
     @media (min-width: 768px) {
@@ -151,42 +166,69 @@
       }
     }
 
-    /* JOBS */
+    .grid .card ul { margin-bottom: 0; }
+
+    /* ACCORDION (jobs + faq) */
     .accordion {
       margin-top: 24px;
       display: flex;
       flex-direction: column;
-      gap: 16px;
+      gap: 12px;
     }
 
-    .job {
+    .acc-item {
       border: 1px solid var(--border);
       border-radius: 12px;
       overflow: hidden;
-      background: rgba(255,255,255,0.4);
+      background: var(--card-bg);
     }
 
-    .job-title {
+    .acc-title {
       width: 100%;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 12px;
       text-align: left;
-      padding: 14px;
+      padding: 14px 16px;
       font-size: 14px;
       font-weight: 500;
       border: none;
       background: transparent;
       cursor: pointer;
+      color: var(--text);
     }
 
-    .job-body {
+    .acc-title .job-meta {
+      display: block;
+      font-weight: 400;
+      color: var(--muted);
+      font-size: 12.5px;
+      margin-top: 3px;
+    }
+
+    .acc-title .chevron {
+      flex-shrink: 0;
+      transition: transform 0.2s ease;
+      color: var(--muted);
+    }
+
+    .acc-item.open .chevron { transform: rotate(45deg); }
+
+    .acc-body {
       display: none;
-      padding: 0 14px 14px;
+      padding: 0 16px 16px;
       color: var(--muted);
       font-size: 14px;
     }
 
-    .job.open .job-body { display: block; }
+    .acc-body p { font-size: 14px; margin: 0; }
 
-    /* PRICING */
+    .acc-item.open .acc-body { display: block; }
+
+    #jobs-list .subtle { margin: 0; }
+
+    /* PRICING / FEES */
     .pricing-grid {
       display: grid;
       grid-template-columns: 1fr;
@@ -203,21 +245,40 @@
     .card {
       border: 1px solid var(--border);
       border-radius: 14px;
-      padding: 18px;
-      background: rgba(255,255,255,0.4);
+      padding: 20px;
+      background: var(--card-bg);
     }
 
-    .card p {
-      font-size: 14px;
-      margin: 0 0 10px;
+    .card .fee-headline {
+      font-size: 15px;
+      color: var(--text);
+      font-weight: 500;
+      margin-bottom: 4px;
     }
+
+    .card .fee-sub {
+      font-size: 13px;
+      color: var(--muted);
+      margin-bottom: 16px;
+    }
+
+    .card p { font-size: 14px; }
+
+    .included {
+      margin-top: 40px;
+      border: 1px solid var(--border);
+      border-radius: 14px;
+      padding: 20px;
+      background: var(--card-bg);
+    }
+
+    .included .grid { margin-top: 12px; }
 
     footer {
       padding: 84px 0;
       color: var(--muted);
       font-size: 14px;
     }
-
   </style>
 </head>
 
@@ -233,7 +294,7 @@
       <div class="nav-links">
         <a href="#about">About</a>
         <a href="#jobs">Jobs</a>
-        <a href="#pricing">Pricing</a>
+        <a href="#fees">Fees</a>
       </div>
     </div>
   </div>
@@ -260,123 +321,152 @@
     <h2>About</h2>
 
     <p>
-      Brunel Search is a specialist search partner focused on senior engineering talent in speech and audio AI.
+      Brunel Search is a specialist search partner for senior engineering and research talent in speech, audio, and multimodal AI. We work exclusively with VC-backed and high-growth startups where model performance, latency, and system design decisions directly determine product quality.
     </p>
 
     <p>
-      We work with VC-backed and high-growth startups building products where model performance, latency, and system design directly define product quality.
+      Most generalist recruiters can screen for keywords. We can tell the difference between a candidate who has fine-tuned a diffusion-based TTS model and one who has only used an API for it &mdash; and so can the founders and CTOs we work with. That depth of domain fluency is what lets us run a fast, targeted search instead of a wide, noisy one.
     </p>
 
     <p>
-      Our edge is combining deep coverage of the audio ML ecosystem with a strong understanding of each client’s product direction, enabling precise senior-level hiring decisions.
+      Every search starts with a scoping call to pin down the technical bar, team context, and comp range, followed by direct outreach into our existing network of practitioners rather than a cold, generic sourcing pass.
     </p>
 
-    <p class="subtle">
-      Placements include CTO-level hires in music AI, founding AI research engineers into Series A speech AI companies, and ML engineers into generative audio platforms.
-    </p>
+    <div class="grid">
+      <div>
+        <h3>Focus areas</h3>
+        <ul>
+          <li>Speech synthesis & TTS</li>
+          <li>ASR & transcription</li>
+          <li>Source separation & audio enhancement</li>
+          <li>Wake word & keyword spotting</li>
+          <li>Generative & multimodal audio</li>
+          <li>Real-time, low-latency inference systems</li>
+        </ul>
+      </div>
+
+      <div>
+        <h3>Track record</h3>
+        <ul>
+          <li>CTO-level hire, music AI startup</li>
+          <li>Founding AI research engineer, Series A speech AI company</li>
+          <li>ML engineers placed into generative audio platforms</li>
+          <li>Research engineers placed into speech AI teams</li>
+        </ul>
+      </div>
+    </div>
   </section>
 
   <!-- JOBS -->
   <section class="container content" id="jobs">
     <h2>Jobs</h2>
+    <p>Current openings we're actively searching for. Don't see the right fit? Get in touch anyway &mdash; we work several unlisted and confidential searches at any given time.</p>
 
-    <div class="accordion">
-
-      <div class="job">
-        <button class="job-title">Founding ML Engineer — Generative Audio</button>
-        <div class="job-body">
-          <p>Real-time generative audio systems for next-gen media products.</p>
-        </div>
-      </div>
-
-      <div class="job">
-        <button class="job-title">AI Research Engineer — Speech AI</button>
-        <div class="job-body">
-          <p>Core model development, training, and experimentation.</p>
-        </div>
-      </div>
-
-      <div class="job">
-        <button class="job-title">ML Engineer — Production Speech Systems</button>
-        <div class="job-body">
-          <p>Scaling low-latency speech AI systems in production.</p>
-        </div>
-      </div>
-
+    <div class="accordion" id="jobs-list">
+      <p class="subtle" id="jobs-status">Loading current openings…</p>
     </div>
   </section>
 
-  <!-- PRICING -->
-  <section class="container content" id="pricing">
-    <h2>Pricing</h2>
+  <!-- FEES -->
+  <section class="container content" id="fees">
+    <h2>Fees</h2>
+    <p>Two engagement models, depending on how senior, specialised, or time-sensitive the role is.</p>
 
     <div class="pricing-grid">
 
-      <!-- RETAINED FIRST -->
       <div class="card">
         <h3>Retained Search</h3>
+        <div class="fee-headline">20% fee &mdash; 1/3 upfront, balance on completion</div>
+        <div class="fee-sub">or 15% fee, 100% upfront &nbsp;·&nbsp; 12-week guarantee</div>
 
-        <p><strong>Option 1:</strong> 20% fee — 1/3 upfront, balance on completion</p>
-        <p>12-week guarantee on final payment</p>
+        <p><strong>Best for:</strong> senior, founding, or mission-critical hires where precision matters more than speed.</p>
 
-        <p><strong>Option 2:</strong> 15% fee — 100% upfront</p>
-
-        <br />
-
-        <p><strong>Why retained:</strong></p>
-        <p>• Dedicated, priority search with deeper market mapping</p>
-        <p>• Access to passive and hard-to-reach senior candidates</p>
-        <p>• More rigorous shortlisting and calibration process</p>
-        <p>• Best for senior, founding, or mission-critical hires</p>
-        <p>• Faster time-to-signal for complex roles</p>
-
-        <br />
-
-        <p class="subtle">
-          Best when precision and candidate quality matter more than speed.
-        </p>
+        <ul>
+          <li>Dedicated, priority search with deeper market mapping</li>
+          <li>Access to passive and hard-to-reach senior candidates</li>
+          <li>Rigorous shortlisting and technical calibration</li>
+          <li>Faster time-to-signal on complex, specialised roles</li>
+        </ul>
       </div>
 
-      <!-- CONTINGENCY -->
       <div class="card">
-        <h3>Contingency</h3>
+        <h3>Contingency Search</h3>
+        <div class="fee-headline">25% of first-year base compensation</div>
+        <div class="fee-sub">Pay on success only &nbsp;·&nbsp; 8-week replacement guarantee</div>
 
-        <p>25% of first-year compensation</p>
-        <p>8-week replacement guarantee</p>
+        <p><strong>Best for:</strong> well-defined roles where speed and flexibility matter more than exclusivity.</p>
 
-        <br />
-
-        <p><strong>Why contingency:</strong></p>
-        <p>• No upfront cost — pay only on success</p>
-        <p>• Fast, flexible hiring model</p>
-        <p>• Ideal for well-defined roles</p>
-        <p>• Useful for market testing before deeper search</p>
-        <p>• Fully success-aligned incentives</p>
-
-        <br />
-
-        <p class="subtle">
-          Best when speed and flexibility matter more than depth.
-        </p>
+        <ul>
+          <li>No upfront cost &mdash; pay only when you hire</li>
+          <li>Fast, flexible engagement to move quickly</li>
+          <li>Useful for testing the market before a deeper search</li>
+          <li>Fully success-aligned incentives</li>
+        </ul>
       </div>
 
     </div>
 
-    <!-- DECISION FRAMEWORK -->
-    <div style="margin-top: 40px;">
-      <h3>When to use each model</h3>
-
-      <p><strong>Use retained search when:</strong></p>
-      <p class="subtle">
-        The role is senior, founding-level, or highly specialised (speech synthesis, source separation, wake word detection), or when hiring precision is critical.
-      </p>
-
-      <p><strong>Use contingency when:</strong></p>
-      <p class="subtle">
-        The role is well-defined and you want to move quickly without committing to a deeper search process upfront.
-      </p>
+    <div class="included">
+      <h3>Included with every search</h3>
+      <div class="grid">
+        <ul>
+          <li>Direct outreach into our audio/speech AI practitioner network</li>
+          <li>Technical screening against your team's actual bar</li>
+          <li>Weekly pipeline updates &mdash; no chasing us for status</li>
+        </ul>
+        <ul>
+          <li>Compensation and market benchmarking for the role</li>
+          <li>Reference checks on final-stage candidates</li>
+          <li>Replacement guarantee if a hire doesn't work out</li>
+        </ul>
+      </div>
     </div>
 
+    <div class="accordion" style="margin-top: 40px;">
+      <div class="acc-item">
+        <button class="acc-title">
+          <span>Do you require exclusivity?</span>
+          <span class="chevron">+</span>
+        </button>
+        <div class="acc-body">
+          <p>Retained searches are exclusive &mdash; we run a dedicated, prioritised process for that role. Contingency searches are non-exclusive, so you're free to run other channels in parallel.</p>
+        </div>
+      </div>
+
+      <div class="acc-item">
+        <button class="acc-title">
+          <span>How quickly can you start?</span>
+          <span class="chevron">+</span>
+        </button>
+        <div class="acc-body">
+          <p>Typically within 48 hours of a scoping call. Initial candidate conversations usually begin in the first one to two weeks.</p>
+        </div>
+      </div>
+
+      <div class="acc-item">
+        <button class="acc-title">
+          <span>What seniority and roles do you cover?</span>
+          <span class="chevron">+</span>
+        </button>
+        <div class="acc-body">
+          <p>Mid-to-senior individual contributor and leadership roles in speech, audio, and multimodal AI &mdash; from founding engineers to CTO-level hires.</p>
+        </div>
+      </div>
+
+      <div class="acc-item">
+        <button class="acc-title">
+          <span>What happens if a hire doesn't work out?</span>
+          <span class="chevron">+</span>
+        </button>
+        <div class="acc-body">
+          <p>Every engagement includes a replacement guarantee (12 weeks for retained, 8 weeks for contingency) &mdash; if the hire leaves or doesn't work out in that window, we run the search again at no additional fee.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="actions">
+      <a class="btn" href="mailto:info@brunelsearch.com">Book a scoping call</a>
+    </div>
   </section>
 
   <footer class="container content">
@@ -384,14 +474,126 @@
   </footer>
 
   <script>
-    document.querySelectorAll('.job').forEach(job => {
-      job.querySelector('.job-title').addEventListener('click', () => {
-        job.classList.toggle('open');
+    // Publish this Google Sheet: File > Share > Publish to web > select the
+    // jobs sheet/tab > format "Comma-separated values (.csv)" > Publish.
+    // Paste the resulting URL below. Editing job rows in the Sheet updates
+    // this section on next page load — no code changes or redeploy needed.
+    const JOBS_SHEET_CSV_URL = "https://docs.google.com/spreadsheets/d/e/2PACX-1vRYOCYxe8CKRSv16LS2gh5CatSU-9bBNhacIf9z7slVnjgW65bXiUI0LhO9541gW8u3T4b0EAafIjKd/pub?gid=253097086&single=true&output=csv";
+
+    function parseCSV(text) {
+      const rows = [];
+      let row = [];
+      let field = "";
+      let inQuotes = false;
+
+      for (let i = 0; i < text.length; i++) {
+        const char = text[i];
+
+        if (inQuotes) {
+          if (char === '"') {
+            if (text[i + 1] === '"') { field += '"'; i++; }
+            else { inQuotes = false; }
+          } else {
+            field += char;
+          }
+        } else if (char === '"') {
+          inQuotes = true;
+        } else if (char === ",") {
+          row.push(field);
+          field = "";
+        } else if (char === "\n" || char === "\r") {
+          if (char === "\r" && text[i + 1] === "\n") i++;
+          row.push(field);
+          rows.push(row);
+          row = [];
+          field = "";
+        } else {
+          field += char;
+        }
+      }
+
+      if (field.length || row.length) {
+        row.push(field);
+        rows.push(row);
+      }
+
+      return rows.filter(r => r.some(cell => cell.trim() !== ""));
+    }
+
+    function rowsToJobs(rows) {
+      const [header, ...body] = rows;
+      const keys = header.map(h => h.trim().toLowerCase());
+
+      return body.map(r => {
+        const job = {};
+        keys.forEach((key, i) => { job[key] = (r[i] || "").trim(); });
+        return job;
+      });
+    }
+
+    function renderJobs(jobs) {
+      const list = document.getElementById("jobs-list");
+      const active = jobs.filter(j => j.active.toLowerCase() === "yes" && j.title);
+
+      if (!active.length) {
+        list.innerHTML = '<p class="subtle">No open roles right now &mdash; email us at <a href="mailto:info@brunelsearch.com">info@brunelsearch.com</a> to hear about upcoming searches.</p>';
+        return;
+      }
+
+      list.innerHTML = active.map(job => `
+        <div class="acc-item">
+          <button class="acc-title">
+            <span>
+              ${job.title}
+              <span class="job-meta">${[job.location, job.type].filter(Boolean).join(" · ")}${job.summary ? " — " + job.summary : ""}</span>
+            </span>
+            <span class="chevron">+</span>
+          </button>
+          <div class="acc-body">
+            <p>${job.details || job.summary || ""}</p>
+          </div>
+        </div>
+      `).join("");
+
+      attachAccordionHandlers(list);
+    }
+
+    function attachAccordionHandlers(scope) {
+      scope.querySelectorAll(".acc-item").forEach(item => {
+        item.querySelector(".acc-title").addEventListener("click", () => {
+          item.classList.toggle("open");
+        });
+      });
+    }
+
+    const cacheBustedUrl = JOBS_SHEET_CSV_URL + "&_ts=" + Date.now();
+
+    fetch(cacheBustedUrl)
+      .then(res => {
+        if (!res.ok) throw new Error("Sheet fetch failed");
+        return res.text();
+      })
+      .then(csv => renderJobs(rowsToJobs(parseCSV(csv))))
+      .catch(() => {
+        document.getElementById("jobs-status").innerHTML =
+          'Current openings are temporarily unavailable. Email us at <a href="mailto:info@brunelsearch.com">info@brunelsearch.com</a> for open roles.';
+      });
+
+    // Static FAQ accordion in the Fees section
+    attachAccordionHandlers(document);
+
+    const sections = ["about", "jobs", "fees"].map(id => document.getElementById(id));
+    const navLinks = document.querySelectorAll(".nav-links a");
+
+    navLinks.forEach(link => {
+      link.addEventListener("click", (e) => {
+        const target = document.querySelector(link.getAttribute("href"));
+        if (!target) return;
+        e.preventDefault();
+        target.scrollIntoView({ behavior: "smooth", block: "start" });
+        history.pushState(null, "", link.getAttribute("href"));
       });
     });
-
-    const sections = ["about","jobs","pricing"].map(id => document.getElementById(id));
-    const navLinks = document.querySelectorAll(".nav-links a");
 
     window.addEventListener("scroll", () => {
       let current = "";
