@@ -10,9 +10,11 @@
 
 <style>
 :root {
-  --bg: #F7F6F3;
-  --text: #111111;
+  --bg: #faf9f5;
+  --text: #141413;
   --muted: #6b7280;
+  --accent: #d97757;
+  --accent-dark: #c6613f;
 }
 
 * {
@@ -60,7 +62,7 @@ p {
 
 .btn {
   display: inline-block;
-  background: #111111;
+  background: var(--accent);
   color: white;
   text-decoration: none;
   padding: 14px 20px;
@@ -70,7 +72,8 @@ p {
 }
 
 .btn:hover {
-  opacity: 0.9;
+  background: var(--accent-dark);
+  opacity: 1;
   transform: translateY(-1px);
 }
 
